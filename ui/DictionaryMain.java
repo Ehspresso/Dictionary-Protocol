@@ -1,5 +1,4 @@
 package ca.yorku.eecs3214.dict.ui;
-
 import ca.yorku.eecs3214.dict.model.Database;
 import ca.yorku.eecs3214.dict.model.Definition;
 import ca.yorku.eecs3214.dict.model.MatchingStrategy;
