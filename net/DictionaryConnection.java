@@ -32,7 +32,6 @@ public class DictionaryConnection {
      */
     public DictionaryConnection(String host, int port) throws DictConnectionException {
 
-        // TODO Add your code here
         try{
             clientSocket = new Socket(host, port);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -68,7 +67,6 @@ public class DictionaryConnection {
      */
     public synchronized void close() {
 
-        // TODO Add your code here
         try {
             out.write("QUIT");
             System.out.println("QUIT!");
@@ -90,8 +88,7 @@ public class DictionaryConnection {
      */
     public synchronized Map<String, Database> getDatabaseList() throws DictConnectionException {
         Map<String, Database> databaseMap = new HashMap<>();
-
-        // TODO Add your code here
+        
         out.write("SHOW DB\r\n");
         out.flush();
         try {
@@ -127,7 +124,6 @@ public class DictionaryConnection {
     public synchronized Set<MatchingStrategy> getStrategyList() throws DictConnectionException {
         Set<MatchingStrategy> set = new LinkedHashSet<>();
 
-        // TODO Add your code here
         out.write("SHOW STRAT\r\n");
         out.flush();
 
@@ -166,7 +162,6 @@ public class DictionaryConnection {
     public synchronized Set<String> getMatchList(String pattern, MatchingStrategy strategy, Database database) throws DictConnectionException {
         Set<String> set = new LinkedHashSet<>();
 
-        // TODO Add your code here
         String pat = "\"".concat(pattern).concat("\"");
         out.write("MATCH " + database.getName() + " " + strategy.getName() + " " + pat + "\r\n");
         out.flush();
@@ -209,7 +204,6 @@ public class DictionaryConnection {
     public synchronized Collection<Definition> getDefinitions(String word, Database database) throws DictConnectionException {
         Collection<Definition> set = new ArrayList<>();
 
-        // TODO Add your code here
         String w = "\"".concat(word).concat("\"");
         out.write("DEFINE " + database.getName() + " " + w + "\r\n");
         out.flush();
